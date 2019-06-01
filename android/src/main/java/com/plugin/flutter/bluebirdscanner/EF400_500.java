@@ -93,9 +93,9 @@ public class EF400_500 extends BlueBirdScanner
                         int result = intent.getIntExtra(Constants.EXTRA_INT_DATA2, 0);
 
                         switch(result){
-                            case Constants.ERROR_BARCODE_DECODING_TIMEOUT:
-                                onError(new Exception("Decode Timeout" + " / seq : " + seq));
-                                break;
+//                            case Constants.ERROR_BARCODE_DECODING_TIMEOUT: //this error is unnecessary cause it's trivial
+//                                onError(new Exception("Decode Timeout" + " / seq : " + seq));
+//                                break;
                             case Constants.ERROR_NOT_SUPPORTED:
                                 onError(new Exception("Not Supoorted" + " / seq : " + seq));
                                 break;
