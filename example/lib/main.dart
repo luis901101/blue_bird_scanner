@@ -4,7 +4,7 @@ import 'package:flutter/material.dart';
 void main() => runApp(MyApp());
 
 class MyApp extends StatefulWidget {
-  BlueBirdScanner zkcScanner = BlueBirdScanner();
+  BlueBirdScanner blueBirdScanner = BlueBirdScanner();
 
   @override
   _MyAppState createState() => _MyAppState();
@@ -17,7 +17,7 @@ class _MyAppState extends State<MyApp> implements ScannerCallBack{
   @override
   void initState() {
     super.initState();
-    widget.zkcScanner.scannerCallBack = this;
+    widget.blueBirdScanner.scannerCallBack = this;
 //    showPlatformVersion();
   }
 
@@ -72,7 +72,7 @@ class _MyAppState extends State<MyApp> implements ScannerCallBack{
             RaisedButton(
               child: Text("Start Scanner"),
               onPressed: (){
-                widget.zkcScanner.startScanner();
+                widget.blueBirdScanner.startScanner();
                 _scannedStatus = "Started";
                 setState(() {});
               },
@@ -81,7 +81,7 @@ class _MyAppState extends State<MyApp> implements ScannerCallBack{
             RaisedButton(
               child: Text("Stop Scanner"),
               onPressed: (){
-                widget.zkcScanner.stopScanner();
+                widget.blueBirdScanner.stopScanner();
                 _scannedStatus = "Stopped";
                 setState(() {});
               },

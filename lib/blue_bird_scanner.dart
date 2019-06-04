@@ -7,15 +7,14 @@ export 'package:blue_bird_scanner/scanner_callback.dart';
 export 'package:blue_bird_scanner/bluebird_model.dart';
 
 class BlueBirdScanner {
-  static const String _METHOD_CHANNEL = "bluebirdscanner";
-  static const String _GET_PLATFORM_VERSION = "getPlatformVersion";
-  static const String _INIT_SCANNER = "initScanner";
-  static const String _START_SCANNER = "startScanner";
-  static const String _RESUME_SCANNER = "resumeScanner";
-  static const String _PAUSE_SCANNER = "pauseScanner";
-  static const String _STOP_SCANNER = "stopScanner";
-  static const String _ON_DECODED = "onDecoded";
-  static const String _ON_ERROR = "onError";
+  static const _METHOD_CHANNEL = "bluebirdscanner";
+  static const _INIT_SCANNER = "initScanner";
+  static const _START_SCANNER = "startScanner";
+  static const _RESUME_SCANNER = "resumeScanner";
+  static const _PAUSE_SCANNER = "pauseScanner";
+  static const _STOP_SCANNER = "stopScanner";
+  static const _ON_DECODED = "onDecoded";
+  static const _ON_ERROR = "onError";
 
   MethodChannel _channel;
   ScannerCallBack _scannerCallBack;
