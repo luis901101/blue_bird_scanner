@@ -52,26 +52,23 @@ class BlueBirdScanner {
     {
       print(e);
     }
+    return null;
   }
 
-  /**
-   * Called when decoder has successfully decoded the code
-   * <br>
-   * Note that this method always called on a worker thread
-   *
-   * @param code Encapsulates the result of decoding a barcode within an image
-   */
+  /// Called when decoder has successfully decoded the code
+  /// <br>
+  /// Note that this method always called on a worker thread
+  ///
+  /// @param code Encapsulates the result of decoding a barcode within an image
   void onDecoded(String code) {
     if(_scannerCallBack != null) _scannerCallBack.onDecoded(code);
   }
 
-  /**
-   * Called when error has occurred
-   * <br>
-   * Note that this method always called on a worker thread
-   *
-   * @param error Exception that has been thrown
-   */
+  /// Called when error has occurred
+  /// <br>
+  /// Note that this method always called on a worker thread
+  ///
+  /// @param error Exception that has been thrown
   void onError(Exception error) {
     if(_scannerCallBack != null) _scannerCallBack.onError(error);
   }
