@@ -1,7 +1,11 @@
 package com.plugin.flutter.bluebirdscanner;
 
+import android.annotation.SuppressLint;
 import android.content.Context;
 
+import androidx.annotation.NonNull;
+import io.flutter.embedding.engine.plugins.FlutterPlugin;
+import io.flutter.plugin.common.BinaryMessenger;
 import io.flutter.plugin.common.MethodCall;
 import io.flutter.plugin.common.MethodChannel;
 import io.flutter.plugin.common.MethodChannel.MethodCallHandler;
@@ -9,12 +13,7 @@ import io.flutter.plugin.common.MethodChannel.Result;
 import io.flutter.plugin.common.PluginRegistry.Registrar;
 
 /** BlueBirdScannerPlugin */
-public class BlueBirdScannerPlugin implements MethodCallHandler, ScannerCallBack {
-
-  /** Plugin registration. */
-  public static void registerWith(Registrar registrar) {
-    new BlueBirdScannerPlugin(registrar);
-  }
+public class BlueBirdScannerPlugin implements FlutterPlugin, MethodCallHandler, ScannerCallBack {
 
   static final String _METHOD_CHANNEL = "bluebirdscanner";
   static final String _GET_PLATFORM_VERSION = "getPlatformVersion";
@@ -26,15 +25,40 @@ public class BlueBirdScannerPlugin implements MethodCallHandler, ScannerCallBack
   static final String _ON_DECODED = "onDecoded";
   static final String _ON_ERROR = "onError";
 
-
   private MethodChannel channel;
   private Context context;
   private BlueBirdScanner scanner;
 
-  public BlueBirdScannerPlugin(Registrar registrar)
-  {
-    context = registrar.context();
-    channel = new MethodChannel(registrar.messenger(), _METHOD_CHANNEL);
+  @Override
+  public void onAttachedToEngine(@NonNull FlutterPluginBinding flutterPluginBinding) {
+    init(
+        flutterPluginBinding.getApplicationContext(),
+        flutterPluginBinding.getBinaryMessenger()
+    );
+  }
+
+  @Override
+  public void onDetachedFromEngine(@NonNull FlutterPluginBinding binding) {
+    if(channel != null) channel.setMethodCallHandler(null);
+  }
+
+  // This static method is only to remain compatible with apps that don’t use the v2 Android embedding.
+  @Deprecated()
+  @SuppressLint("Registrar")
+  public static void registerWith(Registrar registrar) {
+    new BlueBirdScannerPlugin().init(
+        registrar.context(),
+        registrar.messenger()
+    );
+  }
+
+  public BlueBirdScannerPlugin() {
+    
+  }
+
+  private void init(Context context, BinaryMessenger messenger) {
+    this.context = context;
+    channel = new MethodChannel(messenger, _METHOD_CHANNEL);
     channel.setMethodCallHandler(this);
   }
 
@@ -43,7 +67,7 @@ public class BlueBirdScannerPlugin implements MethodCallHandler, ScannerCallBack
   }
 
   @Override
-  public void onMethodCall(MethodCall call, Result result) {
+  public void onMethodCall(@NonNull MethodCall call, @NonNull Result result) {
     try
     {
       switch(call.method){

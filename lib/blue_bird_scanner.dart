@@ -23,7 +23,7 @@ class BlueBirdScanner {
   BlueBirdScanner({BlueBirdModel model = BlueBirdModel.ef400_500, ScannerCallBack? scannerCallBack}) {
     _channel = const MethodChannel(_METHOD_CHANNEL);
     _channel.setMethodCallHandler(_onMethodCall);
-    this._scannerCallBack = scannerCallBack;
+    _scannerCallBack = scannerCallBack;
     initScanner(model);
   }
   BlueBirdModel? get model => _model;

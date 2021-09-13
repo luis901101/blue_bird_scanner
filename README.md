@@ -25,3 +25,8 @@ blueBirdScanner.startScanner();
 blueBirdScanner.stopScanner();
 
 ```
+
+## Other plugins you may be interested in
+
+- [honeywell_scanner](https://pub.dev/packages/honeywell_scanner)
+- [zkc_scanner](https://pub.dev/packages/zkc_scanner)

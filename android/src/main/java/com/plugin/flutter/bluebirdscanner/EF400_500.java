@@ -11,7 +11,7 @@ import android.content.IntentFilter;
 
 public class EF400_500 extends BlueBirdScanner
 {
-    class Constants {
+    static class Constants {
         public static final String STATUS_CLOSE = "STATUS_CLOSE";
         public static final String STATUS_OPEN = "STATUS_OPEN";
         public static final String STATUS_TRIGGER_ON = "STATUS_TRIGGER_ON";
