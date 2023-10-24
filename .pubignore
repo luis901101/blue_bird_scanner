@@ -8,7 +8,6 @@
 .buildlog/
 .history
 .svn/
-flutter_export_environment.sh
 
 # IntelliJ related
 *.iml
@@ -28,9 +27,7 @@ flutter_export_environment.sh
 .packages
 .pub-cache/
 .pub/
-/build/
-*.chopper.dart
-*.g.dart
+build/
 
 # Android related
 **/android/**/gradle-wrapper.jar
