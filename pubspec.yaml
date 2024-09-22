@@ -1,6 +1,6 @@
 name: blue_bird_scanner
 description: A Flutter plugin for barcode scanning with BlueBird PDAs.
-version: 3.0.0+1
+version: 3.0.0+2
 homepage: https://github.com/luis901101/blue_bird_scanner
 issue_tracker: https://github.com/luis901101/blue_bird_scanner/issues
 topics:
