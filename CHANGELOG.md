@@ -9,6 +9,10 @@ Types of changes
 - `Fixed` for any bug fixes.
 - `Security` in case of vulnerabilities.
 
+## 4.0.0 (2025-03-27)
+### Removed
+- (Breaking) Removed deprecated support of plugin registrant for apps that doesn't support v2 Android embedding
+
 ## 3.0.0+2 (2022-10-24)
 ### Added
 - Added support of namespace property to support Android Gradle Plugin (AGP) 8. Projects with AGP < 4.2 should be compatible as well but it is highly recommended to update at least to AGP 7.0 or newer.

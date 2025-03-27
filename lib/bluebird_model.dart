@@ -1,4 +1,3 @@
-
-enum BlueBirdModel{
+enum BlueBirdModel {
   ef400_500,
 }

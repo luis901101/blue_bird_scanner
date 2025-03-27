@@ -20,7 +20,9 @@ class BlueBirdScanner {
   ScannerCallBack? _scannerCallBack;
   late BlueBirdModel _model;
 
-  BlueBirdScanner({BlueBirdModel model = BlueBirdModel.ef400_500, ScannerCallBack? scannerCallBack}) {
+  BlueBirdScanner(
+      {BlueBirdModel model = BlueBirdModel.ef400_500,
+      ScannerCallBack? scannerCallBack}) {
     _channel = const MethodChannel(_METHOD_CHANNEL);
     _channel.setMethodCallHandler(_onMethodCall);
     _scannerCallBack = scannerCallBack;
@@ -33,7 +35,8 @@ class BlueBirdScanner {
     return _channel.invokeMethod(_INIT_SCANNER, _model.name);
   }
 
-  set scannerCallBack(ScannerCallBack scannerCallBack) => _scannerCallBack = scannerCallBack;
+  set scannerCallBack(ScannerCallBack scannerCallBack) =>
+      _scannerCallBack = scannerCallBack;
 
   Future<void> _onMethodCall(MethodCall call) async {
     try {
@@ -47,9 +50,7 @@ class BlueBirdScanner {
         default:
           print(call.arguments);
       }
-    }
-    catch(e)
-    {
+    } catch (e) {
       print(e);
     }
   }
@@ -72,7 +73,7 @@ class BlueBirdScanner {
     _scannerCallBack?.onError(error);
   }
 
-  Future startScanner(){
+  Future startScanner() {
     return _channel.invokeMethod(_START_SCANNER);
   }
 
@@ -87,6 +88,4 @@ class BlueBirdScanner {
   Future stopScanner() {
     return _channel.invokeMethod(_STOP_SCANNER);
   }
-
-
 }

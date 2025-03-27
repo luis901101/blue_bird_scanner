@@ -4,14 +4,13 @@ import 'package:flutter/material.dart';
 void main() => runApp(const MyApp());
 
 class MyApp extends StatefulWidget {
-  const MyApp({Key? key}) : super(key: key);
-
+  const MyApp({super.key});
 
   @override
-  _MyAppState createState() => _MyAppState();
+  State createState() => _MyAppState();
 }
 
-class _MyAppState extends State<MyApp> implements ScannerCallBack{
+class _MyAppState extends State<MyApp> implements ScannerCallBack {
   final blueBirdScanner = BlueBirdScanner();
   String? _scannedCode = 'Empty';
   String _scannedStatus = 'Stopped';
@@ -47,21 +46,27 @@ class _MyAppState extends State<MyApp> implements ScannerCallBack{
           mainAxisAlignment: MainAxisAlignment.center,
           children: <Widget>[
             Text('Scanner: $_scannedStatus'),
-            const Divider(color: Colors.transparent,),
+            const Divider(
+              color: Colors.transparent,
+            ),
             Text('Scanned code: $_scannedCode'),
-            const Divider(color: Colors.transparent,),
+            const Divider(
+              color: Colors.transparent,
+            ),
             ElevatedButton(
               child: const Text("Start Scanner"),
-              onPressed: (){
+              onPressed: () {
                 blueBirdScanner.startScanner();
                 _scannedStatus = "Started";
                 setState(() {});
               },
             ),
-            const Divider(color: Colors.transparent,),
+            const Divider(
+              color: Colors.transparent,
+            ),
             ElevatedButton(
               child: const Text("Stop Scanner"),
-              onPressed: (){
+              onPressed: () {
                 blueBirdScanner.stopScanner();
                 _scannedStatus = "Stopped";
                 setState(() {});
