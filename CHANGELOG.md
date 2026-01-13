@@ -9,6 +9,14 @@ Types of changes
 - `Fixed` for any bug fixes.
 - `Security` in case of vulnerabilities.
 
+## 5.0.0 (2026-01-13)
+### Changed
+- AGP updated to use v8.13.1
+- `compileSdkVersion` updated to use v36
+- `minSdkVersion` updated to use v19
+- `compileOptions` updated to use `JavaVersion.VERSION_21`
+- Updated example project to use gradle wrapper v9.1.0
+
 ## 4.0.0 (2025-03-27)
 ### Removed
 - (Breaking) Removed deprecated support of plugin registrant for apps that doesn't support v2 Android embedding
